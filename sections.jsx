@@ -423,7 +423,7 @@ const SingleCTA = ({ onClick }) =>
 const TestSection = () => {
   const items = [
   { q: '“Os números são importantes, mas a decisão final envolve julgamento.”', name: 'Roger Sasso', co: 'Move Mais', initials: 'RS' },
-  { q: '“Hoje precisamos consultar várias ferramentas para conseguir validar uma análise.”', name: 'Juliana Bertoldi', co: 'Perfípari', initials: 'JB' },
+  { q: '“Hoje precisamos consultar várias ferramentas para conseguir validar uma análise.”', name: 'Juliana Bertoldi', co: 'Perfipar', initials: 'JB' },
   { q: '“Falta de atualização dos dados, como faturamento, são problemas crônicos.”', name: 'Diego Quinto', co: 'Move Mais', initials: 'DQ' }];
 
   const sectors = ['Distribuidoras', 'Indústrias', 'Financeiro B2B', 'Crédito Próprio'];
