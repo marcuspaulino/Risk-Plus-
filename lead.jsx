@@ -195,7 +195,7 @@ const LeadApp = () => (
       </a>
       <a className="lead-header__back" href="index.html">
         <Icon name="arrowLeft" size={14} />
-        <span>Voltar à landing page</span>
+        <span>Voltar à tela inicial</span>
       </a>
     </header>
 
