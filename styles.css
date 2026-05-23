@@ -875,6 +875,7 @@ html.motion-on .hero__product {
   pointer-events: none;
 }
 .pricing__head { text-align: center; margin-bottom: 56px; }
+.pricing__sub { color: rgba(255,255,255,0.65); margin-top: 16px; font-size: 16px; }
 
 .pricing__toggle {
   display: inline-flex;
@@ -981,20 +982,6 @@ html.motion-on .hero__product {
   min-height: 42px;
 }
 .plan--featured .plan__desc { color: rgba(255,255,255,0.85); }
-
-.plan__price {
-  margin: 28px 0 8px;
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-}
-.plan__price strong {
-  font-size: 44px;
-  letter-spacing: -0.03em;
-  font-weight: 600;
-}
-.plan__price span { font-size: 14px; color: rgba(255,255,255,0.55); }
-.plan--featured .plan__price span { color: rgba(255,255,255,0.85); }
 
 .plan__features {
   list-style: none;

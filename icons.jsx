@@ -34,11 +34,15 @@ const ICON_MAP = {
   box: 'package',
   linkedin: 'linkedin-logo',
   instagram: 'instagram-logo',
+  checkCircle: 'check-circle',
+  warningCircle: 'warning-circle',
+  arrowLeft: 'arrow-left',
 };
 
-const Icon = ({ name, size = 20, style, className = '', ...rest }) => {
+const Icon = ({ name, size = 20, weight = 'regular', style, className = '', ...rest }) => {
   const mapped = ICON_MAP[name] || name;
-  const inner = window.PH_ICONS?.[mapped];
+  const key = weight === 'bold' && window.PH_ICONS?.[`${mapped}-bold`] ? `${mapped}-bold` : mapped;
+  const inner = window.PH_ICONS?.[key];
   if (!inner) {
     return <span className={`icon icon--missing ${className}`} style={{ width: size, height: size, display: 'inline-flex', ...style }} {...rest} />;
   }

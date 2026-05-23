@@ -142,9 +142,9 @@ const Hero = ({ onPrimary, onSecondary }) => {
             mais clara para apoiar análises de crédito B2B com mais segurança e contexto.
           </p>
           <div className="hero__ctas">
-            <button className="btn btn--primary btn--pulse" onClick={onPrimary}>
+            <a href="lead.html" className="btn btn--primary btn--pulse" onClick={onPrimary}>
               Faça até 10 consultas grátis
-            </button>
+            </a>
             <button className="btn btn--ghost" onClick={onSecondary}>
               Conheça os planos
             </button>
@@ -423,7 +423,7 @@ const SingleCTA = ({ onClick }) =>
 const TestSection = () => {
   const items = [
   { q: '“Os números são importantes, mas a decisão final envolve julgamento.”', name: 'Roger Sasso', co: 'Move Mais', initials: 'RS' },
-  { q: '“Hoje precisamos consultar várias ferramentas para conseguir validar uma análise.”', name: 'Juliana Bertoldi', co: 'Perfipar', initials: 'JB' },
+  { q: '“Hoje precisamos consultar várias ferramentas para conseguir validar uma análise.”', name: 'Juliana Bertoldi', co: 'Perfípari', initials: 'JB' },
   { q: '“Falta de atualização dos dados, como faturamento, são problemas crônicos.”', name: 'Diego Quinto', co: 'Move Mais', initials: 'DQ' }];
 
   const sectors = ['Distribuidoras', 'Indústrias', 'Financeiro B2B', 'Crédito Próprio'];
@@ -463,32 +463,24 @@ const TestSection = () => {
 
 /* ====== Pricing ====== */
 const Pricing = ({ onPick, featured = 'Business' }) => {
-  const [cycle, setCycle] = useState('mensal');
-  const factor = cycle === 'mensal' ? 1 : 0.8;
   const plans = [
   {
     id: 'pro',
     name: 'Pro',
-    title: 'R$ ' + Math.round(199 * factor),
     tagline: 'O essencial para análises de crédito mais rápidas e organizadas.',
-    features: ['20 consultas/mês', '3 indicadores de crédito', 'Relatórios ilimitados'],
-    cta: 'Contratar'
+    features: ['20 consultas/mês', '3 indicadores de crédito', 'Relatórios ilimitados']
   },
   {
     id: 'business',
     name: 'Business',
-    title: 'R$ ' + Math.round(499 * factor),
     tagline: 'Leve sua operação de crédito para um novo nível de eficiência e controle.',
-    features: ['10 consultas/mês', '6 indicadores de crédito', 'Relatórios ilimitados', 'Suporte facilitado'],
-    cta: 'Contratar'
+    features: ['10 consultas/mês', '6 indicadores de crédito', 'Relatórios ilimitados', 'Suporte facilitado']
   },
   {
     id: 'enterprise',
     name: 'Enterprise',
-    title: 'R$ ' + Math.round(799 * factor),
     tagline: 'Mais profundidade para equipes que analisam crédito em alto volume.',
-    features: ['60 consultas/mês', '9 indicadores de crédito', 'Suporte prioritário'],
-    cta: 'Falar com vendas'
+    features: ['60 consultas/mês', '9 indicadores de crédito', 'Suporte prioritário']
   }].
   map((p) => ({
     ...p,
@@ -496,52 +488,35 @@ const Pricing = ({ onPick, featured = 'Business' }) => {
     btn: p.name === featured ? 'btn--primary' : p.name === 'Enterprise' ? 'btn--light' : 'btn--outline-light'
   }));
 
-  // Glider on toggle
-  const wrapRef = useRef(null);
-  const [glider, setGlider] = useState({ left: 4, width: 80 });
-  useEffect(() => {
-    const w = wrapRef.current;
-    if (!w) return;
-    const btn = w.querySelector('button.is-on');
-    if (btn) {
-      const r = btn.getBoundingClientRect();
-      const pr = w.getBoundingClientRect();
-      setGlider({ left: r.left - pr.left, width: r.width });
-    }
-  }, [cycle]);
-
   return (
     <section className="section pricing" id="planos">
       <div className="container">
         <div className="pricing__head">
           <Reveal as="h2" kind="up">Escolha o plano ideal para sua operação.</Reveal>
-          <Reveal kind="up" delay={120}>
-            <div className="pricing__toggle__wrap" ref={wrapRef}>
-              <div className="pricing__toggle">
-                <button className={cycle === 'mensal' ? 'is-on' : ''} onClick={() => setCycle('mensal')}>Mensal</button>
-                <button className={cycle === 'anual' ? 'is-on' : ''} onClick={() => setCycle('anual')}>Anual · −20%</button>
-                <span className="glider" style={{ left: glider.left, width: glider.width }} />
-              </div>
-            </div>
+          <Reveal as="p" kind="up" delay={120} className="pricing__sub">
+            Planos pensados para times que decidem crédito todos os dias.
           </Reveal>
         </div>
 
         <div className="pricing__grid">
           {plans.map((p, i) =>
           <Reveal key={p.id} className={`plan ${p.featured ? 'plan--featured' : ''}`} kind="up" delay={i * 100}>
-              {p.featured && <span className="plan__badge"></span>}
+              {p.featured && <span className="plan__badge">Mais popular</span>}
               <span className="plan__name">{p.name}</span>
               <p className="plan__desc">{p.tagline}</p>
-              <div className="plan__price">
-                <strong>{p.title}</strong>
-                <span>/ mês</span>
-              </div>
               <ul className="plan__features">
                 {p.features.map((f) =>
-              <li key={f}><Icon name="check" size={16} stroke={2.4} /> {f}</li>
+              <li key={f}><Icon name="check" size={16} /> {f}</li>
               )}
               </ul>
-              <button className={`btn ${p.btn} plan__cta`} onClick={() => onPick(p.name)}>{p.cta}</button>
+              <a
+                href="lead.html"
+                className={`btn ${p.btn} plan__cta`}
+                onClick={() => onPick && onPick(p.name)}
+              >
+                Saiba mais
+                <Icon name="arrowRight" size={16} />
+              </a>
             </Reveal>
           )}
         </div>
