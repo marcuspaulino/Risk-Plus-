@@ -1,6 +1,6 @@
-# Risk Plus — Landing Page (Protótipo Navegável)
+# Risk Plus — Landing Page
 
-Protótipo interativo da landing page da Risk Plus.
+Landing Page - Risk Plus.
 
 ## Stack
 - HTML + CSS puro
