@@ -99,9 +99,9 @@ const Navbar = ({ onCTAClick }) => {
           }
           </a>
         )}
-        <button className="btn btn--primary btn--sm nav__cta" onClick={onCTAClick}>
-          Falar com especialista
-        </button>
+        <a href="lead.html" className="btn btn--primary btn--sm nav__cta">
+  Falar com especialista
+</a>
       </div>
     </nav>);
 
@@ -413,7 +413,7 @@ const SingleCTA = ({ onClick }) =>
         confiança na decisão.
       </Reveal>
       <Reveal kind="up" delay={220}>
-        <button className="btn btn--primary btn--pulse" onClick={onClick}>Falar com especialista</button>
+        <a href="lead.html" className="btn btn--primary btn--pulse">Falar com especialista</a>
       </Reveal>
     </div>
   </section>;
